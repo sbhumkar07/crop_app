@@ -1,0 +1,14 @@
+Image code
+
+in style
+
+img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+
+in body , after analyse
+
+  <img src="../static/images/corn_2.jpg" width="200" height="150">

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Grapes Crop Disease Detection</title>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../static/js/grape.js"></script>
+  <link rel="stylesheet" href="../static/css/style1.css">
+</head>
+
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  /* The image used */
+  background-image: url("../static/images/greengrape.jpg");
+
+  /* Full height */
+  height: 100%;
+  width: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+</style>
+
+<body>
+  <br><br>
+<h1 align="center"><font color="#000000">Detecting Grapes crop diseases </font></h1>
+<center>
+  <br><br>
+<select id="id_one" onchange="show_hide_cancer()" class="button">
+  <option value="grape">Upload Grape Crop Image</option>
+</select>
+<br>
+<br>
+  <input id="file_" type="file" name="pic" accept="image/*" capture="camera" onchange="readURL(this);" class="button"/>
+  <br>
+  <br>
+<button onclick="submit();changeText('button1', 'Analysing....', 'Analyse Image');" class="button" id="button1">Analyse Image</button></center>
+  <center>
+    <br><br>
+  <h2 id="given"></h2>
+  <div class="gif">
+  <img src="../static/images/pht.gif" id="blah" class="demo">
+  </div>
+  <br><br>
+ <!-- <h5 id="Analysing"></h5> -->
+  <h2 id="demo" class="under"></h2>
+  <table align="center">
+    <td height="50%" width="100%">
+    <!--
+    <h3><font color="#5c8a8a"><div id="status" class="status height" align="center"></div></font></h3>
+    <h3><font color="#5c8a8a"><div id="status1" class="status height" align="center"> </div></font></h3><br>
+  -->
+      <h1><font color="#000000"><div id="result"></div></font></h1>
+  </td>
+ </table>
+<br>
+<a href="checkup.html"><button class="button">Home</button></a>
+<br><br><br><br><br><br><br><br><br><br><br>
+</center>
+
+</body>
+<script>
+     function readURL(input) {
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+              $('#blah')
+                  .attr('src', e.target.result);
+          };
+
+          reader.readAsDataURL(input.files[0]);
+      }
+  }
+</script>
+</html>

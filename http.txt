@@ -1,0 +1,4 @@
+http://127.0.0.1:80/home
+
+
+I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX AVX2
