@@ -49,10 +49,11 @@ body {
 </select>
 <br>
 <br>
-  <input id="file_" type="file" name="pic" hidden="hidden" accept="image/*" capture="camera" onchange="readURL(this);" class="button"/>
-  <br>
-  <br>
-<button onclick="submit();changeText('button1', 'Analysing....', 'Analyse Image');" class="button" id="button1">Analyse Image</button></center>
+<input id="file_" type="file" hidden="hidden" onchange="readURL(this);" class="button"/>
+<br>
+<br>
+<button type="button" onclick="submit();changeText('button1', 'Analysing....', 'Analyse Image');" class="button" id="button1">Analyse Image</button></center>
+<span id="custom-text">No file chosen, yet.</span>
   <center>
     <br><br>
   <h2 id="given"></h2>

@@ -1,23 +1,24 @@
+const realFileBtn = document.getElementById("file_");
+const customBtn = document.getElementById("button1");
+const customTxt = document.getElementById("custom-text");
+
+customBtn.addEventListener("click", function() {
+  realFileBtn.click();
+});
+
+realFileBtn.addEventListener("change", function() {
+  if (realFileBtn.value) {
+    customTxt.innerHTML = realFileBtn.value.match(
+      /[\/\\]([\w\d\s\.\-\(\)]+)$/
+    )[1];
+  } else {
+    customTxt.innerHTML = "No file chosen, yet.";
+  }
+});
 
 var map = null;
     var markerArray = [];
-    const realFileBtn = document.getElementById("file_");
-    const customBtn = document.getElementById("button1");
-    const customTxt = document.getElementById("custom-text");
 
-    customBtn.addEventListener("click", function() {
-      realFileBtn.click();
-    });
-
-    realFileBtn.addEventListener("change", function() {
-      if (realFileBtn.value) {
-        customTxt.innerHTML = realFileBtn.value.match(
-          /[\/\\]([\w\d\s\.\-\(\)]+)$/
-        )[1];
-      } else {
-        customTxt.innerHTML = "No file chosen, yet.";
-      }
-    });
 
     function submit(){
 
