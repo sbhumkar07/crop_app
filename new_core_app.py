@@ -130,49 +130,14 @@ def index():
     else:
       warn = "Feeding blank image won't work. Please enter an input image to continue."
       pred_val =" "
-      final_json.append({"pred_val": warn,"Tomato___Bacterial_spot":" ",
-                            "Tomato___Early_blight":" ",
-                            "Tomato___Late_blight":" ",
-                            "Tomato___Leaf_Mold":" ",
-                            "Tomato___Septoria_leaf_spot":" ",
-                            "Tomato___Spider_mites Two-spotted_spider_mite":" ",
-                            "Tomato___Target_Spot":" ",
-                            "Tomato___Tomato_Yellow_Leaf_Curl_Virus":" ",
-                            "Tomato___Tomato_mosaic_virus":" ",
-                            "Tomato___healthy":" ",
+      final_json.append({"pred_val": warn,
                             })
 
     K.clear_session()
     return jsonify(final_json)
   return jsonify({"empty":True})
 
-"""This function is used to load the model from disk.
-def load_model_(model_name):
-  model_name = os.path.join("static/weights",model_name)
-  model = load_model(model_name)
-  return model
-"""
 
-"""This function is used to load the specific model for specific request calls. This
-function will return a list of dictionary items, where the key will contain the loaded
-models and the value will contain the request type."""
-"""
-def get_model(name = None):
-  model_name = []
-  if(name=='tom'):
-    model_name.append({"model": load_model("static/weights/tomato.h5"), "type": name})
-  elif(name=='grape'):
-    model_name.append({"model": load_model_("grape.h5"), "type": name})
-  #print(model_name)
-  return model_name
-
-"""
-
-
-"""preds will contain the predictions made by the model. We will take the class probabalities and
-store them in individual variables. We will return the class probabilities and the final predictions
-made by the model to the frontend. The value contained in variables total and prediction will be
-displayed in the frontend HTML layout."""
 def translate_tomato(preds):
   dicti=["Bacterial Spot","Early Blight","Late Blight","Leaf Mold","Septoria Leaf Spot","Spider_mites Two-spotted_spider_mite","Target Spot","Tomato_Yellow_Leaf_Curl_Virus","Tomato mosaic virus","Healthy - your crop is fine , No Problem."]
   return dicti[np.argmax(preds)]
@@ -190,37 +155,6 @@ def translate_corn(preds):
 def translate_potato(preds):
   dicti=["Early_blight","Late_blight","Healthy - your crop is fine , No Problem."]
   return dicti[np.argmax(preds)]
-
-
-
-  """list_proba = [y_proba_Class0, y_proba_Class1, y_proba_Class2, y_proba_Class3,y_proba_Class4,y_proba_Class5,y_proba_Class6,y_proba_Class7,y_proba_Class8,y_proba_Class9]
-  statements = [
-      "Inference: The image has high evidence of Bacterial Spot.",
-      "Inference: The image has high evidence of Early Blight.",
-      "Inference: The image has high evidence of Late Blight.",
-      "Inference: The image has high evidence of leaf mold.",
-      "Inference: The image has high evidence of Septoria Leaf Spot.",
-      "Inference: The image has high evidence of Spider_mites Two-spotted_spider_mite.",
-      "Inference: The image has high evidence of Target Spot.",
-      "Inference: The image has high evidence of Tomato_Yellow_Leaf_Curl_Virus.",
-      "Inference: The image has high evidence of Tomato mosaic virus.",
-      "Inference: The image has high evidence of Healthy."]
-  index = list_proba.index(max(list_proba))
-  prediction = statements[index]
-
-  return total, prediction"""
-
-#Predict image using VGG16 pretrained models
-
-"""
-def convert_results(string):
-  name = string.replace("_"," ")
-  name = name.replace("-"," ")
-  name = name.title()
-  return name
-"""
-
-
 
 
 if __name__=="__main__":
