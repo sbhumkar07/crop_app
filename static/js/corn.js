@@ -1,11 +1,29 @@
 
 var map = null;
     var markerArray = [];
+    const realFileBtn = document.getElementById("file_");
+    const customBtn = document.getElementById("button1");
+    const customTxt = document.getElementById("custom-text");
+
+    customBtn.addEventListener("click", function() {
+      realFileBtn.click();
+    });
+
+    realFileBtn.addEventListener("change", function() {
+      if (realFileBtn.value) {
+        customTxt.innerHTML = realFileBtn.value.match(
+          /[\/\\]([\w\d\s\.\-\(\)]+)$/
+        )[1];
+      } else {
+        customTxt.innerHTML = "No file chosen, yet.";
+      }
+    });
+
     function submit(){
 
     var val = $("#id_one").val();
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', "http://52.172.162.206:80", true);
+    xhr.open('POST', "http://35.239.255.25:5000", true);
     data = new FormData();
     data.append("type", val);
     if(val != "cancer")
